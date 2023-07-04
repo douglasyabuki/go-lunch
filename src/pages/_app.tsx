@@ -1,6 +1,8 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { Ubuntu } from "next/font/google";
+import { AuthProvider } from "@/contexts/AuthContext";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 
 const ubuntu = Ubuntu({
   weight: ["300", "400", "500", "700"],
@@ -11,7 +13,11 @@ const ubuntu = Ubuntu({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <main className={`${ubuntu.variable} font-sans`}>
-      <Component {...pageProps} />
+      <AuthProvider>
+        <ThemeProvider>
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </AuthProvider>
     </main>
   );
 }

@@ -1,14 +1,23 @@
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
+
+/*
+  IMPORTS
+*/
+
+/*  Components  */
+import Logo from "@/components/logo";
+import AuthForm from "@/components/auth-form";
+
+/*  Next Components */
 import Image from "next/image";
 
-export interface AuthProps {}
-
-export default function Authentication(props: AuthProps) {
+export default function Authentication() {
   const [animate, setAnimate] = useState<boolean>(false);
 
   useEffect(() => {
-    setAnimate(true);
+    setTimeout(() => {
+      setAnimate(true);
+    }, 1000);
   }, []);
 
   return (
@@ -23,13 +32,8 @@ export default function Authentication(props: AuthProps) {
           !animate ? `backdrop:blur-none` : `backdrop-blur-[3px]`
         } delay-200 transition-all duration-400 ease-out`}
       >
-        <div
-          className={`w-96 h-96 ${
-            !animate ? `-translate-x-[5000px]` : `translate-x-0`
-          } bg-background-div1 rounded-xl transform-gpu transition-transform duration-300 ease-out p-12 shadow-lg shadow-transparent-black`}
-        >
-          <Link href={"/"}>Home</Link>
-        </div>
+        <Logo />
+        <AuthForm animate={animate}></AuthForm>
       </div>
     </div>
   );

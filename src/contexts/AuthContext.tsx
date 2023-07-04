@@ -19,7 +19,7 @@ interface AuthContextInterface {
 }
 
 interface AuthProviderInterface {
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export const AuthContext = createContext({} as AuthContextInterface);
@@ -32,39 +32,9 @@ export function AuthProvider({ children }: AuthProviderInterface) {
   });
   const [isAuthenticated, setIsAuthenticated] = useState<Boolean>(false);
 
-  //     const isAuthenticated = !!user;
-
-  //     useEffect(() => {
-  //       const { 'nextauth.token': token } = parseCookies()
-
-  //       if (token) {
-  //         recoverUserInformation().then(response => {
-  //           setUser(response.user)
-  //         })
-  //       }
-  //     }, [])
-
-  //     async function signIn({ email, password }: SignInData) {
-  //       const { token, user } = await signInRequest({
-  //         email,
-  //         password,
-  //       })
-
-  //       setCookie(undefined, 'nextauth.token', token, {
-  //         maxAge: 60 * 60 * 1, // 1 hour
-  //       })
-
-  //       api.defaults.headers['Authorization'] = `Bearer ${token}`;
-
-  //       setUser(user)
-
-  //       Router.push('/dashboard');
-  //     }
-
   return (
     <AuthContext.Provider value={{ user }}>
-      {/* <AuthContext.Provider value={{ user, isAuthenticated, signIn }}> */}
-      {children}
+      {isAuthenticated ? children : <Authentication/>}
     </AuthContext.Provider>
   );
 }
