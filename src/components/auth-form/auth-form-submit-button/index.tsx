@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 interface AuthFormSubmitButtonProps {
   disabled: boolean;
 }
@@ -32,7 +33,7 @@ export default function AuthFormSubmitButton({
       disabled={disabled}
       className={`${shouldTranslate}  relative m-auto flex h-12 w-12 items-center justify-center rounded-full bg-white text-xl text-black transition-all duration-75 disabled:opacity-80`}
     >
-      <i className="fa fa-send"></i>
+      <FontAwesomeIcon icon={faPaperPlane} />
     </button>
   );
 }

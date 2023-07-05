@@ -8,54 +8,32 @@ import React, { useReducer, useEffect } from "react";
 import AuthFormInput from "./auth-form-input";
 import AuthFormSubmitButton from "./auth-form-submit-button";
 
-/*  Interfaces  */
-import {
-  AuthFormState,
-  AuthFormAction,
-} from "@/interfaces/FormControlInterface";
+/*  Form Control    */
+import { AuthFormController } from "@/controllers/auth-form-controller";
+import RegisterButton from "./register-button";
 
 interface AuthFormProps {
   animate: boolean;
 }
 
-function reducer(state: AuthFormState, action: AuthFormAction): AuthFormState {
-  switch (action.type) {
-    case "updateName":
-      return { ...state, user_name: action.value || "", nameError: "" };
-    case "updateEmail":
-      return { ...state, user_email: action.value || "", emailError: "" };
-    case "updateMessage":
-      return { ...state, message: action.value || "", messageError: "" };
-    case "validate":
-      return {
-        ...state,
-        nameError: state.user_name.length === 0 ? "Name is Required" : "",
-        emailError: state.user_email.length === 0 ? "Email is Required" : "",
-        messageError: state.message.length === 0 ? "Message is Required" : "",
-      };
-    case "updateIsSent":
-      return { ...state, isSent: true };
-    default:
-      return state;
-  }
-}
-
 export default function AuthForm({ animate }: AuthFormProps) {
-  const [state, dispatch] = useReducer(reducer, {
-    user_name: "",
+  const [state, dispatch] = useReducer(AuthFormController, {
+    user_password: "",
     user_email: "",
     message: "",
-    nameError: "",
     emailError: "",
+    passwordError: "",
     messageError: "",
     isSent: false,
   });
 
   useEffect(() => {
-    dispatch({ type: 'validate' });
-  }, [state.user_name, state.user_email, state.message]);
+    dispatch({ type: "validate" });
+  }, [state.user_password, state.user_email, state.message]);
 
-  const validateLogin = (e: React.FormEvent<HTMLFormElement>) => {};
+  const validateLogin = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  };
 
   return (
     <div
@@ -74,24 +52,27 @@ export default function AuthForm({ animate }: AuthFormProps) {
           }
         ></AuthFormInput>
         <AuthFormInput
-          value={state.user_name}
+          value={state.user_password}
           type="text"
-          name="user_name"
-          label="Full name"
+          name="password"
+          label="Password"
           onChange={(e) =>
-            dispatch({ type: "updateName", value: e.target.value })
+            dispatch({ type: "updatePassword", value: e.target.value })
           }
         ></AuthFormInput>
         <div className="relative h-auto">
           <AuthFormSubmitButton
             disabled={
-              state.nameError === '' && state.emailError === '' && state.messageError === ''
+              state.passwordError === "" &&
+              state.emailError === "" &&
+              state.messageError === ""
                 ? false
                 : true
             }
           ></AuthFormSubmitButton>
         </div>
       </form>
+      <RegisterButton></RegisterButton>
     </div>
   );
 }
