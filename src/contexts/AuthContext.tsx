@@ -1,5 +1,6 @@
 import Authentication from "@/pages/authentication";
-import { createContext, useEffect, useState } from "react";
+import SignUp from "@/pages/sign-up";
+import React, { SetStateAction, createContext, useEffect, useState } from "react";
 
 interface User {
   name: string;
@@ -13,8 +14,10 @@ interface SignInData {
 }
 
 interface AuthContextInterface {
-  //   isAuthenticated: boolean;
   user: User;
+  isAuthenticated: boolean;
+  isSigningUp: boolean;
+  setIsSigningUp: React.Dispatch<SetStateAction<boolean>>
   //   signIn: (data: SignInData) => Promise<void>;
 }
 
@@ -30,11 +33,20 @@ export function AuthProvider({ children }: AuthProviderInterface) {
     email: "",
     avatar_url: "",
   });
-  const [isAuthenticated, setIsAuthenticated] = useState<Boolean>(false);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [isSigningUp, setIsSigningUp] = useState<boolean>(false);
 
   return (
-    <AuthContext.Provider value={{ user }}>
-      {isAuthenticated ? children : <Authentication/>}
+    <AuthContext.Provider
+      value={{ user, isAuthenticated, isSigningUp, setIsSigningUp }}
+    >
+      {isAuthenticated ? (
+        children
+      ) : isSigningUp ? (
+        <SignUp />
+      ) : (
+        <Authentication />
+      )}
     </AuthContext.Provider>
   );
 }

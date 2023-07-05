@@ -1,17 +1,17 @@
-import { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 
 /*
   IMPORTS
 */
 
 /*  Components  */
-import AuthForm from "@/components/forms/auth-form";
 import Logo from "@/components/logo";
+import SignUpForm from "@/components/forms/sign-up-form";
 
 /*  Next Components */
 import Image from "next/image";
 
-export default function Authentication() {
+export default function SignUp() {
   const [animate, setAnimate] = useState<boolean>(false);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export default function Authentication() {
         } delay-200 transition-all duration-400 ease-out`}
       >
         <Logo />
-        <AuthForm animate={animate}></AuthForm>
+        <SignUpForm animate={animate}></SignUpForm>
       </div>
     </div>
   );
