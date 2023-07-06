@@ -18,10 +18,6 @@ export interface SignUpFormAction {
   value?: string;
 }
 
-// const email = 'usuario@gocn.com.br';
-// const regex = /^[a-zA-Z0-9._%+-]+@gocn\.com\.br$/;
-// const isValid = regex.test(email);
-
 export const SignUpFormController = (
   state: SignUpFormState,
   action: SignUpFormAction
