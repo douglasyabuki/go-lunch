@@ -32,7 +32,11 @@ export default function Authentication() {
           !animate ? `backdrop:blur-none` : `backdrop-blur-[3px]`
         } delay-200 transition-all duration-400 ease-out`}
       >
-        <div className={`${!animate ? `scale-0` : `scale-100`} -translate-y-12 transform-gpu transition-all delay-500 duration-300 ease-out`}>
+        <div
+          className={`${
+            !animate ? `scale-0` : `scale-100`
+          } -translate-y-12 transform-gpu transition-all delay-500 duration-300 ease-out`}
+        >
           <Logo />
         </div>
         <AuthForm animate={animate}></AuthForm>

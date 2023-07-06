@@ -35,8 +35,6 @@ export function ThemeProvider({ children }: ThemeProviderInterface) {
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, handleThemeSwitch }}>
-      {children}
-    </ThemeContext.Provider>
+    <ThemeContext.Provider value={{ theme, handleThemeSwitch }}>{children}</ThemeContext.Provider>
   );
 }

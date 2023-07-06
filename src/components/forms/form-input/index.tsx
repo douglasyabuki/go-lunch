@@ -1,14 +1,14 @@
-import * as React from 'react';
+import * as React from "react";
 
 interface AuthFormInputProps {
-    name: string;
-    type: string;
-    label: string;
-    value: string;
-    onChange: React.ChangeEventHandler<HTMLInputElement>;
+  name: string;
+  type: string;
+  label: string;
+  value: string;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
 }
 
-export default function AuthFormInput ({name, type, label, value, onChange}: AuthFormInputProps) {
+export default function AuthFormInput({ name, type, label, value, onChange }: AuthFormInputProps) {
   return (
     <div className="m-auto w-fit flex-col mb-4">
       <label className="flex text-left font-semibold text-not-so-white">{label}</label>

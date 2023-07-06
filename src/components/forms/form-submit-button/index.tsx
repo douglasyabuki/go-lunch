@@ -5,17 +5,13 @@ interface AuthFormSubmitButtonProps {
   disabled: boolean;
 }
 
-export default function AuthFormSubmitButton({
-  disabled,
-}: AuthFormSubmitButtonProps) {
+export default function AuthFormSubmitButton({ disabled }: AuthFormSubmitButtonProps) {
   // Setting button hover state
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
   // Conditional styling to avoid nested ternary operations. Button escapes if both conditions are true
   let shouldTranslate =
-    isHovered === true && disabled
-      ? `md:translate-x-[200%]`
-      : `md:translate-x-0`;
+    isHovered === true && disabled ? `md:translate-x-[200%]` : `md:translate-x-0`;
 
   // Function to trigger a state change on mouse over
   const handleMouseOver = () => {

@@ -17,7 +17,7 @@ interface AuthContextInterface {
   user: User;
   isAuthenticated: boolean;
   isSigningUp: boolean;
-  setIsSigningUp: React.Dispatch<SetStateAction<boolean>>
+  setIsSigningUp: React.Dispatch<SetStateAction<boolean>>;
   //   signIn: (data: SignInData) => Promise<void>;
 }
 
@@ -37,16 +37,8 @@ export function AuthProvider({ children }: AuthProviderInterface) {
   const [isSigningUp, setIsSigningUp] = useState<boolean>(false);
 
   return (
-    <AuthContext.Provider
-      value={{ user, isAuthenticated, isSigningUp, setIsSigningUp }}
-    >
-      {isAuthenticated ? (
-        children
-      ) : isSigningUp ? (
-        <SignUp />
-      ) : (
-        <Authentication />
-      )}
+    <AuthContext.Provider value={{ user, isAuthenticated, isSigningUp, setIsSigningUp }}>
+      {isAuthenticated ? children : isSigningUp ? <SignUp /> : <Authentication />}
     </AuthContext.Provider>
   );
 }

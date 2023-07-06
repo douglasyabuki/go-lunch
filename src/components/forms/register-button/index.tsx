@@ -4,7 +4,6 @@ import Link from "next/link";
 /*  Contexts  */
 import { AuthContext } from "@/contexts/AuthContext";
 
-
 export default function RegisterButton() {
   const { setIsSigningUp } = useContext(AuthContext);
   return (

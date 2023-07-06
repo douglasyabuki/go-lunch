@@ -45,32 +45,23 @@ export default function AuthForm({ animate }: AuthFormProps) {
           type="email"
           name="user_email"
           label="E-mail"
-          onChange={(e) =>
-            dispatch({ type: "updateEmail", value: e.target.value })
-          }
+          onChange={(e) => dispatch({ type: "updateEmail", value: e.target.value })}
         ></AuthFormInput>
         <AuthFormInput
           value={state.user_password}
           type="text"
           name="password"
           label="Password"
-          onChange={(e) =>
-            dispatch({ type: "updatePassword", value: e.target.value })
-          }
+          onChange={(e) => dispatch({ type: "updatePassword", value: e.target.value })}
         ></AuthFormInput>
         <div className="relative h-auto mt-12">
           <AuthFormSubmitButton
-            disabled={
-              state.passwordError === "" &&
-              state.emailError === "" 
-                ? false
-                : true
-            }
+            disabled={state.passwordError === "" && state.emailError === "" ? false : true}
           ></AuthFormSubmitButton>
         </div>
       </form>
       <div className="bg-background-div2 absolute w-full bottom-4 py-4 align-middle">
-      <RegisterButton></RegisterButton>
+        <RegisterButton></RegisterButton>
       </div>
     </div>
   );
