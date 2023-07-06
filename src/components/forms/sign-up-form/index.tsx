@@ -10,6 +10,7 @@ import FormSubmitButton from "../form-submit-button";
 
 /*  Form Control    */
 import { SignUpFormController } from "@/controllers/sign-up-form-controller";
+import AuthButton from "../auth-button";
 
 interface SignUpFormProps {
   animate: boolean;
@@ -36,7 +37,7 @@ export default function SignUpForm({ animate }: SignUpFormProps) {
 
   return (
     <div
-      className={`w-96 h-96${
+      className={`w-96 min-h-[450px] pt-12 flex-col ${
         !animate ? `-translate-x-[5000px]` : `translate-x-0`
       } bg-background-div1 rounded-xl transform-gpu transition-transform duration-300 ease-out shadow-lg shadow-transparent-black`}
     >
@@ -80,6 +81,9 @@ export default function SignUpForm({ animate }: SignUpFormProps) {
           ></FormSubmitButton>
         </div>
       </form>
+      <div className="bg-background-div2 absolute w-full bottom-4 py-4 align-middle">
+      <AuthButton></AuthButton>
+      </div>
     </div>
   );
 }

@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 /*
   IMPORTS
 */
 
 /*  Components  */
-import Logo from "@/components/logo";
 import SignUpForm from "@/components/forms/sign-up-form";
+import Logo from "@/components/logo";
 
 /*  Next Components */
 import Image from "next/image";
 
-export default function SignUp() {
+export default function Authentication() {
   const [animate, setAnimate] = useState<boolean>(false);
 
   useEffect(() => {
@@ -32,7 +32,9 @@ export default function SignUp() {
           !animate ? `backdrop:blur-none` : `backdrop-blur-[3px]`
         } delay-200 transition-all duration-400 ease-out`}
       >
-        <Logo />
+        <div className={`${!animate ? `scale-0` : `scale-100`} -translate-y-12 transform-gpu transition-all delay-500 duration-300 ease-out`}>
+          <Logo />
+        </div>
         <SignUpForm animate={animate}></SignUpForm>
       </div>
     </div>

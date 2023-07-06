@@ -5,17 +5,17 @@ import Link from "next/link";
 import { AuthContext } from "@/contexts/AuthContext";
 
 
-export default function RegisterButton() {
+export default function AuthButton() {
   const { setIsSigningUp } = useContext(AuthContext);
   return (
     <div className="justify-around items-center m-auto flex font-semibold rounded-b-xl">
-      <p>New here?</p>
+      <p>Already has an account?</p>
       <Link
-        onClick={() => setIsSigningUp(true)}
-        href={"/sign-up"}
+        onClick={() => setIsSigningUp(false)}
+        href={"/authentication"}
         className="hover:text-not-so-white transition-all duration-200"
       >
-        Register
+        Go to Auth
       </Link>
     </div>
   );

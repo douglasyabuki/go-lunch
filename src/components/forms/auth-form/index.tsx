@@ -35,7 +35,7 @@ export default function AuthForm({ animate }: AuthFormProps) {
 
   return (
     <div
-      className={`w-96 h-96${
+      className={`w-96 min-h-[450px] pt-12 flex-col ${
         !animate ? `-translate-x-[5000px]` : `translate-x-0`
       } bg-background-div1 rounded-xl transform-gpu transition-transform duration-300 ease-out shadow-lg shadow-transparent-black`}
     >
@@ -58,7 +58,7 @@ export default function AuthForm({ animate }: AuthFormProps) {
             dispatch({ type: "updatePassword", value: e.target.value })
           }
         ></AuthFormInput>
-        <div className="relative h-auto">
+        <div className="relative h-auto mt-12">
           <AuthFormSubmitButton
             disabled={
               state.passwordError === "" &&
@@ -69,7 +69,7 @@ export default function AuthForm({ animate }: AuthFormProps) {
           ></AuthFormSubmitButton>
         </div>
       </form>
-      <div className="bg-background-div2 bottom-0">
+      <div className="bg-background-div2 absolute w-full bottom-4 py-4 align-middle">
       <RegisterButton></RegisterButton>
       </div>
     </div>
