@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from "react";
+import React, { useReducer, useEffect, useContext } from "react";
 
 /*
     IMPORTS
@@ -7,6 +7,9 @@ import React, { useReducer, useEffect } from "react";
 /*  Components  */
 import AuthFormInput from "../form-input";
 import AuthFormSubmitButton from "../form-submit-button";
+
+/*  Contexts  */
+import { AuthContext } from "@/contexts/AuthContext";
 
 /*  Form Control    */
 import { AuthFormController } from "@/controllers/auth-form-controller";
@@ -24,6 +27,7 @@ export default function AuthForm({ animate }: AuthFormProps) {
     passwordError: "",
     isSent: false,
   });
+  const { signIn } = useContext(AuthContext)
 
   useEffect(() => {
     dispatch({ type: "validate" });
@@ -31,6 +35,7 @@ export default function AuthForm({ animate }: AuthFormProps) {
 
   const validateLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    signIn();
   };
 
   return (

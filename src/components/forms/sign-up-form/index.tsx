@@ -47,21 +47,27 @@ export default function SignUpForm({ animate }: SignUpFormProps) {
           type="email"
           name="user_email"
           label="E-mail"
-          onChange={(e) => dispatch({ type: "updateEmail", value: e.target.value })}
+          onChange={(e) =>
+            dispatch({ type: "updateEmail", value: e.target.value })
+          }
         ></FormInput>
         <FormInput
           value={state.password}
           type="text"
           name="password"
           label="Password"
-          onChange={(e) => dispatch({ type: "updatePassword", value: e.target.value })}
+          onChange={(e) =>
+            dispatch({ type: "updatePassword", value: e.target.value })
+          }
         ></FormInput>
         <FormInput
           value={state.confirm_password}
           type="text"
           name="confirm_password"
           label="Confirm Password"
-          onChange={(e) => dispatch({ type: "updateConfirmPassword", value: e.target.value })}
+          onChange={(e) =>
+            dispatch({ type: "updateConfirmPassword", value: e.target.value })
+          }
         ></FormInput>
         <div className="relative h-auto">
           <FormSubmitButton
