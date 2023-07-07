@@ -1,11 +1,7 @@
 import { useState, useEffect, createContext } from "react";
 
-interface Theme {
-  mode: "light" | "dark";
-}
-
 interface ThemeContextInterface {
-  theme: Theme;
+  darkMode: boolean;
   handleThemeSwitch: () => void;
 }
 
@@ -16,25 +12,23 @@ interface ThemeProviderInterface {
 export const ThemeContext = createContext({} as ThemeContextInterface);
 
 export function ThemeProvider({ children }: ThemeProviderInterface) {
-  const [theme, setTheme] = useState<Theme>({ mode: "light" });
+  const [darkMode, setDarkMode] = useState<boolean>(true);
 
   // Add/Remove dark class whenever the theme is changed
   useEffect(() => {
-    if (theme.mode === "dark") {
+    if (darkMode) {
       document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
     }
-  }, [theme]);
+  }, [darkMode]);
 
   // Switches theme based on current state and click
   const handleThemeSwitch = () => {
-    setTheme((prevTheme) => ({
-      mode: prevTheme.mode === "dark" ? "light" : "dark",
-    }));
+    setDarkMode(!darkMode)
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, handleThemeSwitch }}>{children}</ThemeContext.Provider>
+    <ThemeContext.Provider value={{ darkMode, handleThemeSwitch }}>{children}</ThemeContext.Provider>
   );
 }
