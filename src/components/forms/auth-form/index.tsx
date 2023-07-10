@@ -54,7 +54,7 @@ export default function AuthForm({ animate }: AuthFormProps) {
         ></AuthFormInput>
         <AuthFormInput
           value={state.user_password}
-          type="text"
+          type="password"
           name="password"
           label="Password"
           onChange={(e) => dispatch({ type: "updatePassword", value: e.target.value })}

@@ -18,7 +18,7 @@ export default function ThemeSwitcher() {
 
   return (
     <div
-      className="flex items-center justify-center hover:scale-105 transition-transform duration-100"
+      className="flex text-md xs:text-lg md:text-xl text-not-so-white align-middle h-16 items-center justify-center hover:scale-105 transition-transform duration"
       role={"button"}
       onClick={handleThemeSwitch}
     >
