@@ -11,23 +11,8 @@ interface FormInputProps {
 }
 
 export default function FormInput({ name, type, label, value, onChange }: FormInputProps) {
-  const [isCripto, setIsCripto] = useState<boolean>(type === "password" ? true : false)
-  const [isFocused, setIsFocused] = useState<boolean>(false)
-
-  const showOrHidePassword = () => {
-    setIsCripto(!isCripto)
-  }
-
-  const handleFocus = () => {
-    setIsFocused(true)
-  }
-
-  const handleBlur = () => {
-    setIsFocused(false)
-  }
-
-  const currentIcon = isCripto ? faEye : faEyeSlash
-  const iconColor = isFocused ? "text-background-div1" : "text-not-so-white"
+  const [isCripto, setIsCripto] = useState(type === "password" ? true : false)
+  const [isFocused, setIsFocused] = useState(false)
 
   return (
     <div className="m-auto mb-4 w-fit flex-col">
@@ -41,17 +26,17 @@ export default function FormInput({ name, type, label, value, onChange }: FormIn
           value={value}
           name={name}
           onChange={onChange}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
         />
-        {type === "password" ? (
+        {type === "password" && (
           <FontAwesomeIcon
-            onClick={showOrHidePassword}
-            icon={currentIcon}
-            className={`absolute right-[15px] top-[15px] h-[20px] cursor-pointer text-not-so-white ${iconColor}`}
-          ></FontAwesomeIcon>
-        ) : (
-          <></>
+            onClick={() => setIsCripto(!isCripto)}
+            icon={isCripto ? faEye : faEyeSlash}
+            className={`absolute right-[15px] top-[15px] h-[20px] cursor-pointer text-not-so-white ${
+              isFocused ? "text-background-div1" : "text-not-so-white"
+            }`}
+          />
         )}
       </div>
     </div>

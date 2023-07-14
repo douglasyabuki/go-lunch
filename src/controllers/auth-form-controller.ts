@@ -20,8 +20,8 @@ export const AuthFormController = (state: AuthFormState, action: AuthFormAction)
     case "validate":
       return {
         ...state,
-        passwordError: state.user_password.length === 0 ? "Password is Required" : "",
-        emailError: state.user_email.length === 0 ? "Email is Required" : "",
+        passwordError: !state.user_password.length ? "Password is Required" : "",
+        emailError: !state.user_email.length ? "Email is Required" : "",
       }
     case "updateIsSent":
       return { ...state, isSent: true }
