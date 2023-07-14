@@ -1,7 +1,7 @@
-import dynamic from "next/dynamic";
+import dynamic from "next/dynamic"
 
-const DynamicMap = dynamic(() => import("./Map"), { ssr: false });
+const DynamicMap = dynamic(() => import("./Map"), { ssr: false })
 
 export default function MapComponent() {
-  return <DynamicMap />;
+  return <DynamicMap />
 }

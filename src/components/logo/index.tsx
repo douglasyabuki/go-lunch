@@ -1,10 +1,10 @@
-import Image from "next/image";
+import Image from "next/image"
 export interface LogoProps {}
 
 export default function Logo(props: LogoProps) {
   return (
-    <div className="flex text-4xl  text-not-so-white items-center align-middle h-16">
-      <div className="relative h-16 w-16 mr-2">
+    <div className="flex h-16  items-center align-middle text-4xl text-not-so-white">
+      <div className="relative mr-2 h-16 w-16">
         <Image
           src="./plate-white.svg"
           alt="SVG from w3"
@@ -14,8 +14,8 @@ export default function Logo(props: LogoProps) {
           }}
         />
       </div>
-      <h1 className="text-not-so-white  font-extrabold mr-[2px]">go</h1>
-      <h1 className="text-primary-green  font-extrabold">lunch</h1>
+      <h1 className="mr-[2px]  font-extrabold text-not-so-white">go</h1>
+      <h1 className="font-extrabold  text-primary-green">lunch</h1>
     </div>
-  );
+  )
 }

@@ -8,4 +8,5 @@ module.exports = {
   bracketSameLine: false,
   arrowParens: "avoid",
   singleAttributePerLine: false,
+  quoteProps: "consistent",
 }

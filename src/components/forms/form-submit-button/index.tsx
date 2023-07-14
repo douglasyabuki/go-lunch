@@ -1,24 +1,24 @@
-import React, { useState } from "react";
-import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState } from "react"
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 interface AuthFormSubmitButtonProps {
-  disabled: boolean;
+  disabled: boolean
 }
 
 export default function AuthFormSubmitButton({ disabled }: AuthFormSubmitButtonProps) {
   // Setting button hover state
-  const [isHovered, setIsHovered] = useState<boolean>(false);
+  const [isHovered, setIsHovered] = useState<boolean>(false)
 
   // Conditional styling to avoid nested ternary operations. Button escapes if both conditions are true
   let shouldTranslate =
-    isHovered === true && disabled ? `md:translate-x-[200%]` : `md:translate-x-0`;
+    isHovered === true && disabled ? `md:translate-x-[200%]` : `md:translate-x-0`
 
   // Function to trigger a state change on mouse over
   const handleMouseOver = () => {
     if (disabled === true) {
-      setIsHovered(!isHovered);
+      setIsHovered(!isHovered)
     }
-  };
+  }
 
   // Returns the styled and responsive button to submit the form on ContactForm.tsx
   return (
@@ -31,5 +31,5 @@ export default function AuthFormSubmitButton({ disabled }: AuthFormSubmitButtonP
     >
       <FontAwesomeIcon icon={faPaperPlane} />
     </button>
-  );
+  )
 }
