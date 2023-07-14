@@ -1,36 +1,32 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 
 /*
   IMPORTS
 */
 
 /*  Components  */
-import SignUpForm from "@/components/forms/sign-up-form";
-import Logo from "@/components/logo";
+import SignUpForm from "@/components/forms/sign-up-form"
+import Logo from "@/components/logo"
 
 /*  Next Components */
-import Image from "next/image";
+import Image from "next/image"
 
 export default function Authentication() {
-  const [animate, setAnimate] = useState<boolean>(false);
+  const [animate, setAnimate] = useState<boolean>(false)
 
   useEffect(() => {
     setTimeout(() => {
-      setAnimate(true);
-    }, 1000);
-  }, []);
+      setAnimate(true)
+    }, 1000)
+  }, [])
 
   return (
-    <div className="min-h-screen relative group">
-      <Image
-        src="/background.jpg"
-        alt="Picture from Lydie on Unsplash"
-        fill={true}
-      />
+    <div className="group relative min-h-screen">
+      <Image src="/background.jpg" alt="Picture from Lydie on Unsplash" fill={true} />
       <div
-        className={`z-100 absolute flex flex-col items-center justify-center w-screen min-h-full ${
+        className={`z-100 absolute flex min-h-full w-screen flex-col items-center justify-center ${
           !animate ? `backdrop:blur-none` : `backdrop-blur-[3px]`
-        } delay-200 transition-all duration-400 ease-out`}
+        } duration-400 transition-all delay-200 ease-out`}
       >
         <div
           className={`${
@@ -42,5 +38,5 @@ export default function Authentication() {
         <SignUpForm animate={animate}></SignUpForm>
       </div>
     </div>
-  );
+  )
 }

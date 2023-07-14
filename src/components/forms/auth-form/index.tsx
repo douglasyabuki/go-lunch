@@ -1,22 +1,22 @@
-import React, { useReducer, useEffect, useContext } from "react";
+import React, { useReducer, useEffect, useContext } from "react"
 
 /*
     IMPORTS
 */
 
 /*  Components  */
-import AuthFormInput from "../form-input";
-import AuthFormSubmitButton from "../form-submit-button";
+import AuthFormInput from "../form-input"
+import AuthFormSubmitButton from "../form-submit-button"
 
 /*  Contexts  */
-import { AuthContext } from "@/contexts/AuthContext";
+import { AuthContext } from "@/contexts/AuthContext"
 
 /*  Form Control    */
-import { AuthFormController } from "@/controllers/auth-form-controller";
-import RegisterButton from "../register-button";
+import { AuthFormController } from "@/controllers/auth-form-controller"
+import RegisterButton from "../register-button"
 
 interface AuthFormProps {
-  animate: boolean;
+  animate: boolean
 }
 
 export default function AuthForm({ animate }: AuthFormProps) {
@@ -26,23 +26,23 @@ export default function AuthForm({ animate }: AuthFormProps) {
     emailError: "",
     passwordError: "",
     isSent: false,
-  });
+  })
   const { signIn } = useContext(AuthContext)
 
   useEffect(() => {
-    dispatch({ type: "validate" });
-  }, [state.user_password, state.user_email]);
+    dispatch({ type: "validate" })
+  }, [state.user_password, state.user_email])
 
   const validateLogin = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    signIn();
-  };
+    e.preventDefault()
+    signIn()
+  }
 
   return (
     <div
-      className={`w-96 min-h-[450px] pt-12 flex-col ${
+      className={`min-h-[450px] w-96 flex-col pt-12 ${
         !animate ? `-translate-x-[5000px]` : `translate-x-0`
-      } bg-background-div1 rounded-xl transform-gpu transition-transform duration-300 ease-out shadow-lg shadow-transparent-black`}
+      } transform-gpu rounded-xl bg-background-div1 shadow-lg shadow-transparent-black transition-transform duration-300 ease-out`}
     >
       <form onSubmit={validateLogin} className="">
         <AuthFormInput
@@ -50,24 +50,24 @@ export default function AuthForm({ animate }: AuthFormProps) {
           type="email"
           name="user_email"
           label="E-mail"
-          onChange={(e) => dispatch({ type: "updateEmail", value: e.target.value })}
+          onChange={e => dispatch({ type: "updateEmail", value: e.target.value })}
         ></AuthFormInput>
         <AuthFormInput
           value={state.user_password}
           type="password"
           name="password"
           label="Password"
-          onChange={(e) => dispatch({ type: "updatePassword", value: e.target.value })}
+          onChange={e => dispatch({ type: "updatePassword", value: e.target.value })}
         ></AuthFormInput>
-        <div className="relative h-auto mt-12">
+        <div className="relative mt-12 h-auto">
           <AuthFormSubmitButton
             disabled={state.passwordError === "" && state.emailError === "" ? false : true}
           ></AuthFormSubmitButton>
         </div>
       </form>
-      <div className="bg-background-div2 absolute w-full bottom-4 py-4 align-middle">
+      <div className="absolute bottom-4 w-full bg-background-div2 py-4 align-middle">
         <RegisterButton></RegisterButton>
       </div>
     </div>
-  );
+  )
 }
