@@ -1,7 +1,6 @@
 import Image from "next/image"
-export interface LogoProps {}
 
-export default function Logo(props: LogoProps) {
+export default function Logo() {
   return (
     <div className="flex h-16 items-center align-middle text-4xl text-not-so-white">
       <div className="relative mr-2 h-16 w-16">
