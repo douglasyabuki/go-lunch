@@ -18,7 +18,7 @@ interface AuthContextInterface {
   isAuthenticated: boolean
   isSigningUp: boolean
   setIsSigningUp: React.Dispatch<SetStateAction<boolean>>
-  //signIn: (data: SignInData) => Promise<void>;
+  // signIn: (data: SignInData) => Promise<void>;
   signIn: () => void
   signOut: () => void
 }

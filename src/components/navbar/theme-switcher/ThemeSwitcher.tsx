@@ -1,15 +1,7 @@
-import React, { useContext } from "react"
-
-/*
-    IMPORTS
-*/
-
-/*  Contexts    */
 import { ThemeContext } from "@/contexts/ThemeContext"
-
-/*  Icons   */
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { useContext } from "react"
 
 export default function ThemeSwitcher() {
   const { darkMode, handleThemeSwitch } = useContext(ThemeContext)

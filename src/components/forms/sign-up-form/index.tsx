@@ -1,16 +1,8 @@
-import React, { useReducer, useEffect } from "react"
-
-/*
-    IMPORTS
-*/
-
-/*  Components  */
+import { SignUpFormController } from "@/controllers/sign-up-form-controller"
+import React, { useEffect, useReducer } from "react"
+import AuthButton from "../auth-button"
 import FormInput from "../form-input"
 import FormSubmitButton from "../form-submit-button"
-
-/*  Form Control    */
-import { SignUpFormController } from "@/controllers/sign-up-form-controller"
-import AuthButton from "../auth-button"
 
 interface SignUpFormProps {
   animate: boolean

@@ -1,8 +1,6 @@
-import React, { useContext } from "react"
-import Link from "next/link"
-
-/*  Contexts  */
 import { AuthContext } from "@/contexts/AuthContext"
+import Link from "next/link"
+import { useContext } from "react"
 
 export default function RegisterButton() {
   const { setIsSigningUp } = useContext(AuthContext)

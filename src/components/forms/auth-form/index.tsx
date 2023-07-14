@@ -1,18 +1,8 @@
-import React, { useReducer, useEffect, useContext } from "react"
-
-/*
-    IMPORTS
-*/
-
-/*  Components  */
+import { AuthContext } from "@/contexts/AuthContext"
+import { AuthFormController } from "@/controllers/auth-form-controller"
+import React, { useContext, useEffect, useReducer } from "react"
 import AuthFormInput from "../form-input"
 import AuthFormSubmitButton from "../form-submit-button"
-
-/*  Contexts  */
-import { AuthContext } from "@/contexts/AuthContext"
-
-/*  Form Control    */
-import { AuthFormController } from "@/controllers/auth-form-controller"
 import RegisterButton from "../register-button"
 
 interface AuthFormProps {

@@ -1,15 +1,7 @@
-import { useEffect, useState } from "react"
-
-/*
-  IMPORTS
-*/
-
-/*  Components  */
 import SignUpForm from "@/components/forms/sign-up-form"
 import Logo from "@/components/logo"
-
-/*  Next Components */
 import Image from "next/image"
+import { useEffect, useState } from "react"
 
 export default function Authentication() {
   const [animate, setAnimate] = useState<boolean>(false)
