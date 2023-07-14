@@ -31,9 +31,9 @@ export const SignUpFormController = (
     case "validate":
       return {
         ...state,
-        passwordError: state.password.length === 0 ? "Password is Required" : "",
-        confirmPasswordError: state.confirm_password.length === 0 ? "Passwords do not match" : "",
-        emailError: state.user_email.length === 0 ? "Email is Required" : "",
+        passwordError: !state.password.length ? "Password is Required" : "",
+        confirmPasswordError: !state.confirm_password.length ? "Passwords do not match" : "",
+        emailError: !state.user_email.length ? "Email is Required" : "",
       }
     case "updateIsSent":
       return { ...state, isSent: true }
