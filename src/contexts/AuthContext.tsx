@@ -1,6 +1,6 @@
 import Authentication from "@/pages/authentication"
 import SignUp from "@/pages/sign-up"
-import React, { SetStateAction, createContext, useEffect, useState } from "react"
+import React, { SetStateAction, createContext, useState } from "react"
 
 interface User {
   name: string

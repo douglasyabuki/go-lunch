@@ -26,7 +26,7 @@ export default function FormInput({ name, type, label, value, onChange }: FormIn
     setIsFocused(false)
   }
 
-  let currentIcon = isCripto ? faEye : faEyeSlash
+  const currentIcon = isCripto ? faEye : faEyeSlash
   const iconColor = isFocused ? "text-background-div1" : "text-not-so-white"
 
   return (

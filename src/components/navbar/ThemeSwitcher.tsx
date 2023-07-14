@@ -5,8 +5,8 @@ import { useContext } from "react"
 
 export default function ThemeSwitcher() {
   const { darkMode, handleThemeSwitch } = useContext(ThemeContext)
-  let currentContent = darkMode === true ? "Dark mode" : "Light mode"
-  let currentIcon = darkMode === true ? faMoon : faSun
+  const currentContent = darkMode === true ? "Dark mode" : "Light mode"
+  const currentIcon = darkMode === true ? faMoon : faSun
 
   return (
     <div

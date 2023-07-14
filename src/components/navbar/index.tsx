@@ -8,7 +8,7 @@ export default function Navbar() {
   const { isAuthenticated } = useContext(AuthContext)
   const { darkMode } = useContext(ThemeContext)
 
-  let currentStyle =
+  const currentStyle =
     darkMode === true
       ? "bg-gradient-to-b from-background-black to-transparent"
       : "bg-background-div1"
