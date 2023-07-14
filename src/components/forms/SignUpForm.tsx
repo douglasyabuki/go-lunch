@@ -1,8 +1,8 @@
 import { SignUpFormController } from "@/controllers/sign-up-form-controller"
 import React, { useEffect, useReducer } from "react"
-import AuthButton from "../auth-button"
-import FormInput from "../form-input"
-import FormSubmitButton from "../form-submit-button"
+import AuthButton from "./AuthButton"
+import FormSubmitButton from "./AuthFormSubmitButton"
+import FormInput from "./FormInput"
 
 interface SignUpFormProps {
   animate: boolean
@@ -30,7 +30,7 @@ export default function SignUpForm({ animate }: SignUpFormProps) {
   return (
     <div
       className={`min-h-[450px] w-96 flex-col pt-12 ${
-        !animate ? `-translate-x-[5000px]` : `translate-x-0`
+        !animate ? "-translate-x-[5000px]" : "translate-x-0"
       } transform-gpu rounded-xl bg-background-div1 shadow-lg shadow-transparent-black transition-transform duration-300 ease-out`}
     >
       <form onSubmit={validateLogin} className="">

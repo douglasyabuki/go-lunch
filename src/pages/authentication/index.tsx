@@ -1,10 +1,10 @@
-import AuthForm from "@/components/forms/auth-form"
-import Logo from "@/components/logo"
+import Logo from "@/components/Logo"
+import AuthForm from "@/components/forms/AuthForm"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 
 export default function Authentication() {
-  const [animate, setAnimate] = useState<boolean>(false)
+  const [animate, setAnimate] = useState(false)
 
   useEffect(() => {
     setTimeout(() => {
@@ -17,12 +17,12 @@ export default function Authentication() {
       <Image src="/background.jpg" alt="Picture from Lydie on Unsplash" fill={true} />
       <div
         className={`z-100 absolute flex min-h-full w-screen flex-col items-center justify-center ${
-          !animate ? `backdrop:blur-none` : `backdrop-blur-[3px]`
+          !animate ? "backdrop:blur-none" : "backdrop-blur-[3px]"
         } duration-400 transition-all delay-200 ease-out`}
       >
         <div
           className={`${
-            !animate ? `scale-0` : `scale-100`
+            !animate ? "scale-0" : "scale-100"
           } -translate-y-12 transform-gpu transition-all delay-500 duration-300 ease-out`}
         >
           <Logo />

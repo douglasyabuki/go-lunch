@@ -1,6 +1,7 @@
-import React, { useState } from "react"
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { useState } from "react"
+
 interface AuthFormSubmitButtonProps {
   disabled: boolean
 }
@@ -10,8 +11,8 @@ export default function AuthFormSubmitButton({ disabled }: AuthFormSubmitButtonP
   const [isHovered, setIsHovered] = useState<boolean>(false)
 
   // Conditional styling to avoid nested ternary operations. Button escapes if both conditions are true
-  let shouldTranslate =
-    isHovered === true && disabled ? `md:translate-x-[200%]` : `md:translate-x-0`
+  const shouldTranslate =
+    isHovered === true && disabled ? "md:translate-x-[200%]" : "md:translate-x-0"
 
   // Function to trigger a state change on mouse over
   const handleMouseOver = () => {
@@ -27,7 +28,7 @@ export default function AuthFormSubmitButton({ disabled }: AuthFormSubmitButtonP
       onMouseOver={handleMouseOver}
       type="submit"
       disabled={disabled}
-      className={`${shouldTranslate}  relative m-auto flex h-12 w-12 items-center justify-center rounded-full bg-white text-xl text-black transition-all duration-75 disabled:opacity-80`}
+      className={`${shouldTranslate} relative m-auto flex h-12 w-12 items-center justify-center rounded-full bg-white text-xl text-black transition-all duration-75 disabled:opacity-80`}
     >
       <FontAwesomeIcon icon={faPaperPlane} />
     </button>

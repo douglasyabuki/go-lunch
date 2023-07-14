@@ -1,9 +1,9 @@
 import { AuthContext } from "@/contexts/AuthContext"
 import { AuthFormController } from "@/controllers/auth-form-controller"
 import React, { useContext, useEffect, useReducer } from "react"
-import AuthFormInput from "../form-input"
-import AuthFormSubmitButton from "../form-submit-button"
-import RegisterButton from "../register-button"
+import AuthFormSubmitButton from "./AuthFormSubmitButton"
+import AuthFormInput from "./FormInput"
+import RegisterButton from "./RegisterButton"
 
 interface AuthFormProps {
   animate: boolean
@@ -31,7 +31,7 @@ export default function AuthForm({ animate }: AuthFormProps) {
   return (
     <div
       className={`min-h-[450px] w-96 flex-col pt-12 ${
-        !animate ? `-translate-x-[5000px]` : `translate-x-0`
+        !animate ? "-translate-x-[5000px]" : "translate-x-0"
       } transform-gpu rounded-xl bg-background-div1 shadow-lg shadow-transparent-black transition-transform duration-300 ease-out`}
     >
       <form onSubmit={validateLogin} className="">
