@@ -1,9 +1,9 @@
 import { AuthContext } from "@/contexts/AuthContext"
 import { AuthFormController } from "@/controllers/auth-form-controller"
 import React, { useContext, useEffect, useReducer } from "react"
-import AuthFormInput from "../form-input"
-import AuthFormSubmitButton from "../form-submit-button"
-import RegisterButton from "../register-button"
+import AuthFormInput from "./FormInput"
+import AuthFormSubmitButton from "./AuthFormSubmitButton"
+import RegisterButton from "./RegisterButton"
 
 interface AuthFormProps {
   animate: boolean

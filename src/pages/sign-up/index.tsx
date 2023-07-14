@@ -1,5 +1,5 @@
-import SignUpForm from "@/components/forms/sign-up-form"
-import Logo from "@/components/logo"
+import Logo from "@/components/Logo"
+import SignUpForm from "@/components/forms/SignUpForm"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 

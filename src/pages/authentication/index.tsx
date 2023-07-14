@@ -1,10 +1,10 @@
-import AuthForm from "@/components/forms/auth-form"
-import Logo from "@/components/logo"
+import Logo from "@/components/Logo"
+import AuthForm from "@/components/forms/AuthForm"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 
 export default function Authentication() {
-  const [animate, setAnimate] = useState<boolean>(false)
+  const [animate, setAnimate] = useState(false)
 
   useEffect(() => {
     setTimeout(() => {

@@ -1,8 +1,8 @@
 import { SignUpFormController } from "@/controllers/sign-up-form-controller"
 import React, { useEffect, useReducer } from "react"
-import AuthButton from "../auth-button"
-import FormInput from "../form-input"
-import FormSubmitButton from "../form-submit-button"
+import AuthButton from "./AuthButton"
+import FormInput from "./FormInput"
+import FormSubmitButton from "./AuthFormSubmitButton"
 
 interface SignUpFormProps {
   animate: boolean

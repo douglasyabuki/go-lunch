@@ -1,8 +1,8 @@
 import { AuthContext } from "@/contexts/AuthContext"
 import { ThemeContext } from "@/contexts/ThemeContext"
 import { useContext } from "react"
-import Logo from "../logo"
-import ThemeSwitcher from "./theme-switcher/ThemeSwitcher"
+import Logo from "../Logo"
+import ThemeSwitcher from "./ThemeSwitcher"
 
 export default function Navbar() {
   const { isAuthenticated } = useContext(AuthContext)
