@@ -4,11 +4,7 @@ import AuthButton from "./AuthButton"
 import FormSubmitButton from "./AuthFormSubmitButton"
 import FormInput from "./FormInput"
 
-interface SignUpFormProps {
-  animate: boolean
-}
-
-export default function SignUpForm({ animate }: SignUpFormProps) {
+export default function SignUpForm() {
   const [state, dispatch] = useReducer(SignUpFormController, {
     password: "",
     confirm_password: "",
@@ -24,11 +20,7 @@ export default function SignUpForm({ animate }: SignUpFormProps) {
   }, [state.password, state.user_email, state.confirm_password])
 
   return (
-    <div
-      className={`min-h-[450px] w-96 flex-col pt-12 ${
-        !animate ? "-translate-x-[5000px]" : "translate-x-0"
-      } transform-gpu rounded-xl bg-background-div1 shadow-lg shadow-transparent-black transition-transform duration-300 ease-out`}
-    >
+    <div className="flex h-[300px] flex-col gap-4 py-8">
       <form onSubmit={e => e.preventDefault()}>
         <FormInput
           value={state.user_email}
@@ -60,8 +52,8 @@ export default function SignUpForm({ animate }: SignUpFormProps) {
           />
         </div>
       </form>
-      <div className="absolute bottom-4 w-full bg-background-div2 py-4 align-middle">
-        <AuthButton></AuthButton>
+      <div className="bottom-4 flex w-full border-y-[1px] border-grey-60 py-4 align-middle">
+        <AuthButton />
       </div>
     </div>
   )

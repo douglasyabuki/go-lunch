@@ -37,7 +37,7 @@ export const AuthContext = createContext({} as AuthContextInterface)
 
 export function AuthProvider({ children }: AuthProviderInterface) {
   const [user, setUser] = useState(initialUserState)
-  const [isAuthenticated, setIsAuthenticated] = useState(true)
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [isSigningUp, setIsSigningUp] = useState(false)
 
   const signIn = () => {
