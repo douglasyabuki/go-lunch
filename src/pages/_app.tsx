@@ -1,6 +1,7 @@
 import Navbar from "@/components/navbar"
 import { AuthProvider } from "@/contexts/AuthContext"
 import { ThemeProvider } from "@/contexts/ThemeContext"
+import Layout from "@/layout/Layout"
 import "@/styles/globals.css"
 import type { AppProps } from "next/app"
 import { Ubuntu } from "next/font/google"
@@ -16,8 +17,9 @@ export default function App({ Component, pageProps }: AppProps) {
     <main className={`${ubuntu.variable} font-sans`}>
       <AuthProvider>
         <ThemeProvider>
-          <Navbar></Navbar>
-          <Component {...pageProps} />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
         </ThemeProvider>
       </AuthProvider>
     </main>

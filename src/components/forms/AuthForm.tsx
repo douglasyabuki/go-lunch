@@ -5,11 +5,7 @@ import AuthFormSubmitButton from "./AuthFormSubmitButton"
 import AuthFormInput from "./FormInput"
 import RegisterButton from "./RegisterButton"
 
-interface AuthFormProps {
-  animate: boolean
-}
-
-export default function AuthForm({ animate }: AuthFormProps) {
+export default function AuthForm() {
   const [state, dispatch] = useReducer(AuthFormController, {
     user_password: "",
     user_email: "",
@@ -29,11 +25,7 @@ export default function AuthForm({ animate }: AuthFormProps) {
   }
 
   return (
-    <div
-      className={`min-h-[450px] w-96 flex-col pt-12 ${
-        !animate ? "-translate-x-[5000px]" : "translate-x-0"
-      } transform-gpu rounded-xl bg-background-div1 shadow-lg shadow-transparent-black transition-transform duration-300 ease-out`}
-    >
+    <div className="flex h-[300px] flex-col gap-4 py-8">
       <form onSubmit={validateLogin} className="">
         <AuthFormInput
           value={state.user_email}
@@ -55,7 +47,7 @@ export default function AuthForm({ animate }: AuthFormProps) {
           <AuthFormSubmitButton disabled={!!state.passwordError || !!state.emailError} />
         </div>
       </form>
-      <div className="absolute bottom-4 w-full bg-background-div2 py-4 align-middle">
+      <div className="bottom-4 flex w-full border-y-[1px] border-grey-60 py-4 align-middle">
         <RegisterButton />
       </div>
     </div>
